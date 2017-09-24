@@ -1,5 +1,5 @@
 define(['jquery', 'cookie'], function ($) {
-    // µÇÂ¼¹¦ÄÜ
+    // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
     $('#loginBtn').click(function () {
         //console.log(123);
         $.ajax({
@@ -8,15 +8,15 @@ define(['jquery', 'cookie'], function ($) {
             data: $('#loginForm').serialize(),
             dataType: 'json',
             success: function (data) {
-                console.log(data)
+                //console.log(data)
                 if (data.code == 200) {
-                    //°ÑÓÃ»§µÄµÇÂ¼ÐÅÏ¢´æ´¢µ½cookieÖÐ£¬·½±ã¿çÒ³Ãæ¹²ÏíÊý¾Ý
+                    //ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Äµï¿½Â¼ï¿½ï¿½Ï¢ï¿½æ´¢ï¿½ï¿½cookieï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½æ¹²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     $.cookie('loginInfo', JSON.stringify(data.result), {path: '/'});
                     location.href = '/main/index'
                 }
             }
         });
-        return false;  //×èÖ¹°´Å¥µÄÄ¬ÈÏÐÐÎª
+        return false;  //ï¿½ï¿½Ö¹ï¿½ï¿½Å¥ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½Îª
 
     });
 

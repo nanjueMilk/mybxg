@@ -6,7 +6,7 @@ define(['jquery', 'template', 'bootstrap'], function ($, template) {
         success: function (data) {
             //console.log(data);
             //解析数据，渲染页面
-            console.log(data.result);
+            //console.log(data.result);
             var html = template('teacherTpl', {list: data.result});
             $('#teacherInfo').html(html);
 
