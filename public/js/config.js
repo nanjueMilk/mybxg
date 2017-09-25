@@ -3,27 +3,33 @@ require.config({
     paths: {
         jquery: 'jquery/jquery',
         cookie: 'jquery-cookie/jquery.cookie',
-        template: 'artTemplate/template-web',
+        template: 'artTemplate/template',
         bootstrap: 'bootstrap/js/bootstrap.min',
-        datepicker:'bootstrap-datepicker/js/bootstrap-datepicker',
-        language:'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
-        validate:'validate/jquery-validate',
-        form:'jquery-form/jquery.form',
+        datepicker: 'bootstrap-datepicker/js/bootstrap-datepicker',
+        language: 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        validate: 'validate/jquery-validate',
+        form: 'jquery-form/jquery.form',
+        uploadify: 'jquery-uploadify/jquery.uploadify.min',
+        region:'jquery-region/jquery.region',
         util: '../js/util',
         common: '../js/common',
         login: '../js/login',
         teacherlist: '../js/teacher-list',
         teacheradd: '../js/teacher-add',
-        settings:'../js/settings'
+        settings: '../js/settings'
     },
     shim: {
         bootstrap: {
             deps: ['jquery']
         },
-        language:{
-            deps:['jquery','datepicker']
+        language: {
+            deps: ['jquery', 'datepicker']
         },
-        validate:{
-           deps: ['jquery']}
+        validate: {
+            deps: ['jquery']
+        },
+        uploadify:{
+            deps:['jquery']
+        }
     }
 });
