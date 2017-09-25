@@ -29,8 +29,7 @@ define(['jquery', 'template', 'uploadify', 'region'], function ($, template) {
             // 处理省市县三级联动
             $('#pcd').region({
                 url: '/public/assets/jquery-region/region.json',
-
-            })
+            });
 
         }
 
