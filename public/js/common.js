@@ -31,9 +31,10 @@ define(['jquery','template','cookie'], function ($,template) {
         location.href = '/main/login';
     }
 //设置用户头像信息
-//console.log($.cookie('loginInfo'))
+console.log($.cookie('loginInfo'))
     var loginInfo = $.cookie('loginInfo');
     loginInfo = loginInfo && JSON.parse(loginInfo);
+    console.log(loginInfo);
     //$('.aside .profile img').attr('src', loginInfo.tc_avatar);
     //$('.aside .profile h4').html(loginInfo.tc_name)
     var tpl = '<div class="avatar img-circle">'
