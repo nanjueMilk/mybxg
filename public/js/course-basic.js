@@ -1,4 +1,4 @@
-define(['jquery', 'template', 'util', 'ckeditor'], function ($, template, util, CKEDITOE) {
+define(['jquery', 'template', 'util', 'ckeditor', 'validate', 'form'], function ($, template, util, CKEDITOE) {
     // 设置导航菜单选中
     util.setMenu('/course/add');
     // 获取课程Id
@@ -42,6 +42,7 @@ define(['jquery', 'template', 'util', 'ckeditor'], function ($, template, util, 
                         }
                     })
                 })
+
                 // 处理富文本
                 CKEDITOR.replace('editor', {
                     toolbar: [
@@ -52,11 +53,29 @@ define(['jquery', 'template', 'util', 'ckeditor'], function ($, template, util, 
                         {name: 'editing', items: ['Scayt']},
                     ]
                 });
-                //同步富文本内容
-                for(var instance in CKEDITOR.instances){
-                    CKEDITOR.instances[instance].updateElement();
-                }
-
+                // 处理表单提交
+                $('#basicForm').validate({
+                    sendForm: false,
+                    valid: function () {
+                        // 同步富文本内容
+                        for (var instance in CKEDITOR.instances) {
+                            CKEDITOR.instances[instance].updateElement();
+                        }
+                        // 提交表单
+                        $(this).ajaxSubmit({
+                            type: 'post',
+                            url: '/api/course/update/basic',
+                            data: {cs_id: csId},
+                            dataType: 'json',
+                            success: function (data) {
+                                //console.log(data);
+                                if (data.code == 200) {
+                                    location.href = '/course/picture?cs_id =' + data.result.cs_id;
+                                }
+                            }
+                        })
+                    }
+                })
             }
         }
     })
