@@ -11,8 +11,8 @@ define(['jquery','util','form'], function ($,util) {
             success: function (data) {
                 if (data.code == 200) {
                     //跳转到下一步
-                    //console.log(123)
-                    location.href = '/course/basic?cs_id=' + data.result.cs_id
+                    //console.log(data)
+                    location.href = '/course/basic?cs_id=' + data.result.cs_id;
                 }
             }
         })
